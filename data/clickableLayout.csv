@@ -1,0 +1,5 @@
+ID,Name,State,PNGFilename,Text,x,y,visible
+0,StartGame,Characters,,Start Game,1000,650,yes
+1,Story1,Story,,Choice1,100,600,yes
+2,Story2,Story,,Choice2,400,600,yes
+3,Story3,Story,,Choice3,700,600,yes
