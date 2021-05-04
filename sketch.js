@@ -12,111 +12,183 @@ var clickablesManager;
 var adventureManager;
 var clickables;
 
+var maxLOGO;
+
+var flag;
+var star;
+var characterImages = [];
+
+var characters = [];        // array of charactes
+
 function preload() {
-    clickablesManager = new ClickableManager('data/clickableLayout.csv');
-    adventureManager = new AdventureManager('data/adventureStates.csv', 'data/interactionTable.csv', 'data/clickableLayout.csv');
+  star = loadImage('assets/star.png');
+  flag = loadImage('assets/bk_flag.png');
+  clickablesManager = new ClickableManager('data/clickableLayout.csv');
+  adventureManager = new AdventureManager('data/adventureStates.csv', 'data/interactionTable.csv', 'data/clickableLayout.csv');
+  
+  allocateCharacters();
 }
 
 function setup() {
-    createCanvas(1280, 720);
+  createCanvas(1280, 720);
 
-    clickables = clickablesManager.setup();
-    adventureManager.setClickableManager(clickablesManager);
-    adventureManager.setup();
+  clickables = clickablesManager.setup();
+  adventureManager.setClickableManager(clickablesManager);
+  adventureManager.setup();
 
-    setupClickables(); 
+  loadAllText();
+
+  setupClickables(); 
 }
 
 function draw() {
-    background(0);
-    adventureManager.draw();
-    clickablesManager.draw();
+  background(0);
+  adventureManager.draw();
+  clickablesManager.draw();
+
+  if(
+  adventureManager.getStateName() === "Splash" ||
+  adventureManager.getStateName() === "Instructions" ||
+  adventureManager.getStateName() === "Characters") {
+    ;
+  } else {
+    drawCharacters();
+  }
 }
 
 //------------------- Clickable setup ------------------//
 function setupClickables() {
-    // All clickables to have same effects
-    for( let i = 0; i < clickables.length; i++ ) {
-        clickables[i].onHover = clickableButtonHover;
-        clickables[i].onOutside = clickableButtonOnOutside;    
+  // All clickables to have same effects
+  for( let i = 0; i < clickables.length; i++ ) {
+    clickables[i].onHover = clickableButtonHover;
+    clickables[i].onOutside = clickableButtonOnOutside;
+    if (i>=1) {
+      clickables[i].width = 300;
     }
-    clickables[0].onPress = clickableButtonPressed;
+  }
+  clickables[0].onPress = clickableButtonPressed;
 }
 // tint when mouse is over
 clickableButtonHover = function () {
-    this.color = "#AA33AA";
-    this.noTint = false;
-    this.tint = "#FF0000";
+  this.color = "#AA33AA";
+  this.noTint = false;
+  this.tint = "#FF0000";
 }
 
 // color a light gray if off
 clickableButtonOnOutside = function () {
-    // backto our gray color
-    this.color = "#AAAAAA";
+  // backto our gray color
+  this.color = "#AAAAAA";
 }
 
 clickableButtonPressed = function() {
-    adventureManager.clickablePressed(this.name);
+  adventureManager.clickablePressed(this.name);
 } 
 
 function mouseReleased() {
-    // dispatch all mouse events to adventure manager
-    adventureManager.mouseReleased();
+  // dispatch all mouse events to adventure manager
+  adventureManager.mouseReleased();
+}
+
+// ---------------- class setup ------------------//
+function loadAllText() { //text set up
+  scenarioRooms = adventureManager.states;
+
+  scenarioRooms[3].setText("Which department are you want to choose?","Your team just innovation the exoskeleton and it is fully functional. There are two main supporter in this project, which one did you want to talk to at first?");
+}
+
+// --------------- Character setup ------------------ //
+function allocateCharacters() {
+  // load the images
+  characterImages[0] = loadImage("assets/COMPANY.png");
+  characterImages[1] = loadImage("assets/ARMY.png");
+  characterImages[2] = loadImage("assets/PUBLIC.png");
+  characterImages[3] = loadImage("assets/FIRE.png");
+  characterImages[4] = loadImage("assets/OTHER.png");
+
+  for( let i = 0; i < characterImages.length; i++ ) {
+    characters[i] = new Character();
+    characters[i].setup( characterImages[i], 100 + (400 * parseInt(i/2)), 120 + (i%2 * 120));
+  }
+
+  // default anger is zero, set up some anger values
+  characters[2].addAnger(2);
+}
+
+function drawCharacters() {
+  for( let i = 0; i < characters.length; i++ ) {
+    characters[i].draw();
+  }
 }
 
 //------------------- Class ------------------------//
 
 class Character {
-    constructor() {
-      this.image = null;
-      this.x = width/2;
-      this.y = width/2;
-    }
+  constructor() {
+    this.image = null;
+    this.x = width/2;
+    this.y = width/2;
+  }
+
+  setup(img, x, y) {
+    this.image = img;
+    this.x = x;
+    this.y = y;
+    this.anger = 0;
+  }
   
-    setup(img, x, y) {
-      this.image = img;
-      this.x = x;
-      this.y = y;
-      this.anger = 0;
-    }
-  
-    draw() {
-      if( this.image ) {
-        push();
-        // draw the character icon
-        imageMode(CENTER);
-        image( this.image, this.x, this.y );
-  
-        // draw anger emojis
-        for( let i = 0; i < this.anger; i++ ) {
-          image(angerImage, this.x + 70 + (i*40), this.y +10 );
-        }
-  
-        pop();
+  draw() {
+    if( this.image ) {
+      push();
+      // draw the character icon
+      imageMode(CENTER);
+      image( this.image, this.x, this.y,100,100);
+
+      // draw anger emojis
+      for( let i = 0; i < this.anger; i++ ) {
+        image(star, this.x + 70 + (i*40), this.y +10, 50, 50);
       }
-    }
-  
-    getAnger() {
-      return this.anger;
-    }
-  
-    // add, check for max overflow
-    addAnger(amt) {
-      this.anger += amt;
-      if( this.anger > maxAnger ) {
-        this.anger = maxAnger;
-      }
-  
-    }
-  
-    // sub, check for below zero
-    subAnger(amt) {
-      this.anger -= amt;
-      if( this.anger < 0 ) {
-        this.anger = 0;
-      }
+
+      pop();
     }
   }
+
+  getAnger() {
+    return this.anger;
+  }
+
+  // add, check for max overflow
+  addAnger(amt) {
+    this.anger += amt;
+    if( this.anger > maxLOGO ) {
+      this.anger = maxLOGO;
+    }
+  }
+
+  // sub, check for below zero
+  subAnger(amt) {
+    this.anger -= amt;
+    if( this.anger < 0 ) {
+      this.anger = 0;
+    }
+  }
+
+  // add, check for max overflow
+  addAnger2(amt) {
+    this.anger += amt;
+    if( this.anger > maxLOGO ) {
+      this.anger = maxLOGO;
+    }
+  }
+
+  // sub, check for below zero
+  subAnger2(amt) {
+    this.anger -= amt;
+    if( this.anger < 0 ) {
+      this.anger = 0;
+    }
+  }
+}
 
   class ScenarioRoom extends PNGRoom {
     // Constructor gets calle with the new keyword, when upon constructor for the adventure manager in preload()
