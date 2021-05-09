@@ -1,4 +1,40 @@
 ID,Name,State,PNGFilename,Text,x,y,visible
-0,StartGame,Characters,,Start Game,1000,650,yes
-1,B_C1,BackStory0,,Communicate with ARMY,100,600,yes
-2,B_C2,BackStory0,,Communicate with PUBLIC DEP,600,600,yes
+0,StartGame,Characters,,Start Game,883,607,yes
+1,B1_C1,BackStory0,,Communicate with ARMY,200,600,yes
+2,B1_C2,BackStory0,,Communicate with PUBLIC DEP,800,600,yes
+3,B2_C1,BackStory1,,Join team for service society,200,600,yes
+4,B2_C2,BackStory1,,It is better to have a job,800,600,yes
+5,S1_C1,Story1-UorD,,Let's go from the upstair,200,600,yes
+6,S1_C2,Story1-UorD,,Let's go from button to up.,800,600,yes
+7,S2_C1,Story1-Up-Office,,Use anything to break through,100,600,yes
+8,S2_C2,Story1-Up-Office,,Put off the fire first,500,600,yes
+9,S2_C3,Story1-Up-Office,,Ignore this voice,900,600,yes
+10,S3_C1,Story1-Up-Use,,Take the Elevator,200,600,yes
+11,S3_C2,Story1-Up-Use,,Take the stair,800,600,yes
+12,S3_C1,Story1-Up-NUse,,Take the Elevator,200,600,yes
+13,S3_C2,Story1-Up-NUse,,Take the stair,800,600,yes
+14,S3_C1,Story1-Up-Ign,,Take the Elevator,200,600,yes
+15,S3_C2,Story1-Up-Ign,,Take the stair,800,600,yes
+16,S4_C1,Story1-Ele,,Open the Roof for exit,200,600,yes
+17,S4_C2,Story1-Ele,,Open the Door for exit,800,600,yes
+18,S5_C1,Story1-From roof,,Go to another elevator,200,600,yes
+19,S5_C2,Story1-From roof,,Go to floor and take stair,800,600,yes
+20,S6_C1,Story1-From door,,Go to another elevator,200,600,yes
+21,S6_C2,Story1-From door,,Go to floor and take stair,800,600,yes
+22,S7_C1,Story1-Ele2,,"""So close"" - Next Mission",200,600,yes
+23,S7_C2,Story1-Ele2,,"""Wow"" - Next Mission",800,600,yes
+24,S7_C1,Story1-Stair,,"""So close"" - Next Mission",200,600,yes
+25,S7_C2,Story1-Stair,,"""Wow"" - Next Mission",800,600,yes
+26,S8_C1,Story1-Down,,Take the Elevator,200,600,yes
+27,S8_C2,Story1-Down,,Take the stair,800,600,yes
+28,D1_C1,Story2-Participate,,It must be a helpful mission,200,600,yes
+29,D1_C2,Story2-Participate,,It might be help for warfare,800,600,yes
+30,D2_C1,Story2-T-Basic,,Treat them not serious,200,600,yes
+31,D2_C2,Story2-T-Basic,,Treat them seriously,800,600,yes
+32,D3_C1,Story2-Secret,,It definitly help the warfare,100,600,yes
+33,D3_C2,Story2-Secret,,At least it will help someone,500,600,yes
+34,D3_C3,Story2-Secret,,It is not my business,900,600,yes
+35,D4_C1,Story2-T-Advance,,Teach them those skills,200,600,yes
+36,D4_C2,Story2-T-Advance,,Teach them some skills,800,600,yes
+37,D5_C1,Story2-Done,,"""It is done"" - Next",200,600,yes
+38,D5_C2,Story2-Done,,"""Good"" -Next",800,600,yes

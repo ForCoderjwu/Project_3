@@ -1,4 +1,43 @@
 CurrentState,KeyTyped,KeyCode,MouseEvent,ClickableName,MapDirection,NextState
+Intro,,,mouseReleased,,,Splash
 Splash,,,mouseReleased,,,Instructions
 Instructions,,,mouseReleased,,,Characters
 Characters,,,,StartGame,,BackStory0
+BackStory0,,,,B1_C1,,BackStory1
+BackStory0,,,,B1_C2,,BackStory1
+BackStory1,,,,B2_C1,,Story1-UorD
+BackStory1,,,,B2_C2,,END1
+Story1-UorD,,,,S1_C1,,Story1-Up-Office
+Story1-UorD,,,,S1_C2,,Story1-Down
+Story1-Up-Office,,,,S2_C1,,Story1-Up-Use
+Story1-Up-Office,,,,S2_C2,,Story1-Up-NUse
+Story1-Up-Office,,,,S2_C3,,Story1-Up-Ign
+Story1-Up-Use,,,,S3_C1,,Story1-Ele
+Story1-Up-Use,,,,S3_C2,,Story1-Stair
+Story1-Up-NUse,,,,S3_C1,,Story1-Ele
+Story1-Up-NUse,,,,S3_C2,,Story1-Stair
+Story1-Up-Ign,,,,S3_C1,,Story1-Ele
+Story1-Up-Ign,,,,S3_C2,,Story1-Stair
+Story1-Ele,,,,S4_C1,,Story1-From roof
+Story1-Ele,,,,S4_C2,,Story1-From door
+Story1-From roof,,,,S5_C1,,Story1-Ele2
+Story1-From roof,,,,S5_C2,,Story1-Stair
+Story1-From door,,,,S6_C1,,Story1-Ele2
+Story1-From door,,,,S6_C2,,Story1-Stair
+Story1-Ele2,,,,S7_C1,,Story2-Participate
+Story1-Ele2,,,,S7_C2,,Story2-Participate
+Story1-Stair,,,,S7_C1,,Story2-Participate
+Story1-Stair,,,,S7_C2,,Story2-Participate
+Story1-Down,,,,S8_C1,,Story1-Up-Office
+Story1-Down,,,,S8_C2,,Story1-Up-Office
+Story2-Participate,,,,D1_C1,,Story2-T-Basic
+Story2-Participate,,,,D1_C2,,Story2-T-Basic
+Story2-T-Basic,,,,D2_C1,,Story2-Secret
+Story2-T-Basic,,,,D2_C2,,Story2-Secret
+Story2-Secret,,,,D3_C1,,Story2-Secret
+Story2-Secret,,,,D3_C2,,Story2-T-Advance
+Story2-Secret,,,,D3_C3,,Story2-T-Advance
+Story2-T-Advance,,,,D4_C1,,Story2-Done
+Story2-T-Advance,,,,D4_C2,,Story2-Done
+Story2-Done,,,,D5_C1,,
+Story2-Done,,,,D5_C2,,
