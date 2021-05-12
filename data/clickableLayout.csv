@@ -38,3 +38,30 @@ ID,Name,State,PNGFilename,Text,x,y,visible
 36,D4_C2,Story2-T-Advance,,Teach them some skills,800,600,yes
 37,D5_C1,Story2-Done,,"""It is done"" - Next",200,600,yes
 38,D5_C2,Story2-Done,,"""Good"" -Next",800,600,yes
+39,F1_C1,Story3-Start,,Get in by physical control,200,600,yes
+40,F1_C2,Story3-Start,,Get in by remotely control,800,600,yes
+41,F2_C1,Story3-Physical,,"Nothing, keep working",200,600,yes
+42,F2_C2,Story3-Physical,,It is better to return and check,800,600,yes
+43,F3_C1,Story3-Physical1,,"""The radius is much bigger""",200,600,yes
+44,F3_C2,Story3-Physical1,,Next,800,600,yes
+45,F4_C1,Story3-Remotely,,Use real wire to instead,200,600,yes
+46,F4_C2,Story3-Remotely,,Change to phisical control,800,600,yes
+47,F5_C1,Story3-Remotely1,,"""It is old, but very useful.""",200,600,yes
+48,F5_C2,Story3-Remotely1,,Next,800,600,yes
+49,F6_C1,Story3-Enter,,Clean up the fire first,100,600,yes
+50,F6_C2,Story3-Enter,,Clean up the radiation first ,500,600,yes
+51,F6_C3,Story3-Enter,,Clean them in same time,900,600,yes
+52,F7_C1,Story3-Fire,,Keep the exoskeleton working,200,600,yes
+53,F7_C2,Story3-Fire,,Work together is efficient,800,600,yes
+54,F8_C1,Story3-Radius,,Keep the exoskeleton working,200,600,yes
+55,F8_C2,Story3-Radius,,Work together is efficient,800,600,yes
+56,F9_C1,Story3-Coop,,"""Jobs are done""",200,600,yes
+57,F9_C2,Story3-Coop,,"Good job, mission complish",800,600,yes
+58,F10_C1,Story3-Fire-Exit,,"""Jobs are done""",200,600,yes
+59,F10_C2,Story3-Fire-Exit,,"Good job, mission complish",800,600,yes
+60,F11_C1,Story3-Fire-Stay,,"""Jobs are done""",200,600,yes
+61,F11_C2,Story3-Fire-Stay,,"Good job, mission complish",800,600,yes
+62,F12_C1,Story3-Radius-Exit,,"""Jobs are done""",200,600,yes
+63,F12_C2,Story3-Radius-Exit,,"Good job, mission complish",800,600,yes
+64,F13_C1,Story3-Radius-Stay,,"""Jobs are done""",200,600,yes
+65,F13_C2,Story3-Radius-Stay,,"Good job, mission complish",800,600,yes
