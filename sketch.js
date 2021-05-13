@@ -86,8 +86,6 @@ function draw() {
   else {
     drawCharacters();
   }
-
-  drawDebugInfo();
 }
 
 //------------------- Clickable setup ------------------//
@@ -410,13 +408,6 @@ function loadAllText() { //text set up
   scenarioRooms[35].setText("Mission is closely done","Because your team is wearing the most efficient protection suit and trust what your wear, all members choose to clean their up before evacuate. Finally, the radius value in this area is much lower than the scientific prediction, but you know, you and your team member have some kind of negative effect on it. But you still saving tons of life and gave a high reputation around the public.");
 }
 
-function drawDebugInfo() {
-  push();
-	fill(255);
-  text("X: " + mouseX + "   Y: " + mouseY, 20, height - 20);
-  pop();
-}
-
 function ENDpage(texts){
   push();
   fill(255);
@@ -484,13 +475,13 @@ class Character {
       // draw logos
       if (this.stars < 0) {
         for( let i = 0; i < -(this.stars); i++ ) {
-          if (i < 5) image(flag, this.x + 70 + (i*30), this.y-30, 30, 30);
+          if (i < 4) image(flag, this.x + 70 + (i*30), this.y-30, 30, 30);
           else image(flag, this.x + 70 + (i*30) - 5 * 30, this.y, 30, 30);
         }
       } else {
         for( let i = 0; i < this.stars; i++ ) {
-          if (i < 5) image(star, this.x + 70 + (i*30), this.y-30, 30, 30);
-          else image(star, this.x + 70 + (i*30) - 5 * 30, this.y, 30, 30);
+          if (i < 4) image(star, this.x + 70 + (i*30), this.y-30, 30, 30);
+          else image(star, this.x + 70 + (i*30) - 4 * 30, this.y, 30, 30);
         }
       }
       pop();
@@ -542,16 +533,15 @@ class ScenarioRoom extends PNGRoom {
     super.draw();
     
     push();
-    textFont(font);
     // title text
+    textFont(font);
     textSize(20);
+    text(this.titleText, this.drawX , this.drawY-5);
 
-    text(this.titleText, this.drawX , this.drawY);
-
+    //body text
     textFont(font_b);
     fill('#65c294');
     textSize(30);
-
     text(this.bodyText, this.drawX , this.drawY + 60, width - (this.drawX*2),height - (this.drawY+100) );
     
     pop();
